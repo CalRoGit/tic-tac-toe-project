@@ -281,13 +281,16 @@ def checkWin(player, array):
             stddraw.line(2.05, 2.1, 8, 8.05)
             return True
         
-        # Check draw
-        isDraw = True
-        for col in range(9):
-            if array[col] == 0:
-                isDraw = False
-        if isDraw:
-            return "Draw"
+    # Check draw
+    isDraw = True
+    for col in range(9):
+        if array[col] == 0:
+            isDraw = False
+            break
+    if isDraw:
+        return "Draw"
+    else:
+        return False
 
 def compMove(player, array):
     """
@@ -342,9 +345,9 @@ def gameLoopMulti():
             tictacArray = stdarray.create1D(9, 0)
             loopTimes += 1
             if loopTimes % 2 == 0:
-                player = 1
-            else:
                 player = 2
+            else:
+                player = 1
         
         stddraw.clear(stddraw.DARK_GRAY)
         storeBoard(tictacArray)
@@ -359,7 +362,7 @@ def gameLoopMulti():
                 if tictacArray[0] == 0:
                     index = 0
                     doMove(player, tictacArray, index)
-                    if checkWin(player, tictacArray):
+                    if checkWin(player, tictacArray) == True:
                         stddraw.setFontSize(40)
                         stddraw.text(5, 5, "Player " + str(player) + " wins!")
                         stddraw.show(2000)
@@ -383,7 +386,7 @@ def gameLoopMulti():
                 if tictacArray[1] == 0:
                     index = 1
                     doMove(player, tictacArray, index)
-                    if checkWin(player, tictacArray):
+                    if checkWin(player, tictacArray) == True:
                         stddraw.setFontSize(40)
                         stddraw.text(5, 5, "Player " + str(player) + " wins!")
                         stddraw.show(2000)
@@ -407,7 +410,7 @@ def gameLoopMulti():
                 if tictacArray[2] == 0:
                     index = 2
                     doMove(player, tictacArray, index)
-                    if checkWin(player, tictacArray):
+                    if checkWin(player, tictacArray) == True:
                         stddraw.setFontSize(40)
                         stddraw.text(5, 5, "Player " + str(player) + " wins!")
                         stddraw.show(2000)
@@ -431,7 +434,7 @@ def gameLoopMulti():
                 if tictacArray[3] == 0:
                     index = 3
                     doMove(player, tictacArray, index)
-                    if checkWin(player, tictacArray):
+                    if checkWin(player, tictacArray) == True:
                         stddraw.setFontSize(40)
                         stddraw.text(5, 5, "Player " + str(player) + " wins!")
                         stddraw.show(2000)
@@ -455,7 +458,7 @@ def gameLoopMulti():
                 if tictacArray[4] == 0:
                     index = 4
                     doMove(player, tictacArray, index)
-                    if checkWin(player, tictacArray):
+                    if checkWin(player, tictacArray) == True:
                         stddraw.setFontSize(40)
                         stddraw.text(5, 5, "Player " + str(player) + " wins!")
                         stddraw.show(2000)
@@ -479,7 +482,7 @@ def gameLoopMulti():
                 if tictacArray[5] == 0:
                     index = 5
                     doMove(player, tictacArray, index)
-                    if checkWin(player, tictacArray):
+                    if checkWin(player, tictacArray) == True:
                         stddraw.setFontSize(40)
                         stddraw.text(5, 5, "Player " + str(player) + " wins!")
                         stddraw.show(2000)
@@ -503,7 +506,7 @@ def gameLoopMulti():
                 if tictacArray[6] == 0:
                     index = 6
                     doMove(player, tictacArray, index)
-                    if checkWin(player, tictacArray):
+                    if checkWin(player, tictacArray) == True:
                         stddraw.setFontSize(40)
                         stddraw.text(5, 5, "Player " + str(player) + " wins!")
                         stddraw.show(2000)
@@ -527,7 +530,7 @@ def gameLoopMulti():
                 if tictacArray[7] == 0:
                     index = 7
                     doMove(player, tictacArray, index)
-                    if checkWin(player, tictacArray):
+                    if checkWin(player, tictacArray) == True:
                         stddraw.setFontSize(40)
                         stddraw.text(5, 5, "Player " + str(player) + " wins!")
                         stddraw.show(2000)
@@ -551,7 +554,7 @@ def gameLoopMulti():
                 if tictacArray[8] == 0:
                     index = 8
                     doMove(player, tictacArray, index)
-                    if checkWin(player, tictacArray):
+                    if checkWin(player, tictacArray) == True:
                         stddraw.setFontSize(40)
                         stddraw.text(5, 5, "Player " + str(player) + " wins!")
                         stddraw.show(2000)
@@ -603,7 +606,7 @@ def gameLoopComp():
         
         if player == 2:
             compMove(player, tictacArray)
-            if checkWin(player, tictacArray):
+            if checkWin(player, tictacArray) == True:
                 stddraw.setFontSize(40)
                 stddraw.text(5, 5, "Computer wins!")
                 stddraw.show(2000)
@@ -627,7 +630,7 @@ def gameLoopComp():
                     if tictacArray[0] == 0:
                         index = 0
                         doMove(player, tictacArray, index)
-                        if checkWin(player, tictacArray):
+                        if checkWin(player, tictacArray) == True:
                             stddraw.setFontSize(40)
                             stddraw.text(5, 5, "Player " + str(player) + " wins!")
                             stddraw.show(2000)
@@ -650,7 +653,7 @@ def gameLoopComp():
                     if tictacArray[1] == 0:
                         index = 1
                         doMove(player, tictacArray, index)
-                        if checkWin(player, tictacArray):
+                        if checkWin(player, tictacArray) == True:
                             stddraw.setFontSize(40)
                             stddraw.text(5, 5, "Player " + str(player) + " wins!")
                             stddraw.show(2000)
@@ -673,7 +676,7 @@ def gameLoopComp():
                     if tictacArray[2] == 0:
                         index = 2
                         doMove(player, tictacArray, index)
-                        if checkWin(player, tictacArray):
+                        if checkWin(player, tictacArray) == True:
                             stddraw.setFontSize(40)
                             stddraw.text(5, 5, "Player " + str(player) + " wins!")
                             stddraw.show(2000)
@@ -696,7 +699,7 @@ def gameLoopComp():
                     if tictacArray[3] == 0:
                         index = 3
                         doMove(player, tictacArray, index)
-                        if checkWin(player, tictacArray):
+                        if checkWin(player, tictacArray) == True:
                             stddraw.setFontSize(40)
                             stddraw.text(5, 5, "Player " + str(player) + " wins!")
                             stddraw.show(2000)
@@ -719,7 +722,7 @@ def gameLoopComp():
                     if tictacArray[4] == 0:
                         index = 4
                         doMove(player, tictacArray, index)
-                        if checkWin(player, tictacArray):
+                        if checkWin(player, tictacArray) == True:
                             stddraw.setFontSize(40)
                             stddraw.text(5, 5, "Player " + str(player) + " wins!")
                             stddraw.show(2000)
@@ -742,7 +745,7 @@ def gameLoopComp():
                     if tictacArray[5] == 0:
                         index = 5
                         doMove(player, tictacArray, index)
-                        if checkWin(player, tictacArray):
+                        if checkWin(player, tictacArray) == True:
                             stddraw.setFontSize(40)
                             stddraw.text(5, 5, "Player " + str(player) + " wins!")
                             stddraw.show(2000)
@@ -765,7 +768,7 @@ def gameLoopComp():
                     if tictacArray[6] == 0:
                         index = 6
                         doMove(player, tictacArray, index)
-                        if checkWin(player, tictacArray):
+                        if checkWin(player, tictacArray) == True:
                             stddraw.setFontSize(40)
                             stddraw.text(5, 5, "Player " + str(player) + " wins!")
                             stddraw.show(2000)
@@ -788,7 +791,7 @@ def gameLoopComp():
                     if tictacArray[7] == 0:
                         index = 7
                         doMove(player, tictacArray, index)
-                        if checkWin(player, tictacArray):
+                        if checkWin(player, tictacArray) == True:
                             stddraw.setFontSize(40)
                             stddraw.text(5, 5, "Player " + str(player) + " wins!")
                             stddraw.show(2000)
@@ -811,7 +814,7 @@ def gameLoopComp():
                     if tictacArray[8] == 0:
                         index = 8
                         doMove(player, tictacArray, index)
-                        if checkWin(player, tictacArray):
+                        if checkWin(player, tictacArray) == True:
                             stddraw.setFontSize(40)
                             stddraw.text(5, 5, "Player " + str(player) + " wins!")
                             stddraw.show(2000)
@@ -831,18 +834,6 @@ def gameLoopComp():
 
         if player > 2:
             player = 1  
-          
-        if checkWin(player, tictacArray) == "Draw":
-            stddraw.setFontSize(40)
-            stddraw.text(5, 5, "Game ends in a draw!")
-            stddraw.show(2000)
-            stddraw.setFontSize(20)
-            tictacArray = stdarray.create1D(9, 0)
-            loopTimes += 1
-            if loopTimes % 2 == 0:
-                player = 2
-            else:
-                player = 1
         stddraw.show(10)
         
 gameMode = menuFunc(menu)
